@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -29,19 +28,33 @@ class HomeView extends GetView<HomeController> {
             ],
             selectedIndex: controller.selectedIndex.value,
             onDestinationSelected: (value) =>
-                controller.onDestinationSelected(value),
+                controller.onDestinationSelected(value, context),
           ),
         ),
-        Expanded(
-            child: Center(
-          child: Obx(() => Container(
-                child: Text(
-                  controller.levelText.value,
-                  style: const TextStyle(
-                      fontSize: 32, fontWeight: FontWeight.bold),
-                ),
-              )),
-        ))
+        // Expanded(
+        //   child: Center(
+        //     child: Obx(
+        //       () => Container(
+        //         child: Text(
+        //           controller.levelText.value,
+        //           style: const TextStyle(
+        //               fontSize: 32, fontWeight: FontWeight.bold),
+        //         ),
+        //       ),
+        //     ),
+        //   ),
+        // )
+
+        // Expanded(
+        //   child: Navigator(
+        //     onGenerateRoute: (settings) {
+        //       return MaterialPageRoute(
+        //         builder: (_) =>
+        //             controller.pages[controller.selectedIndex.value],
+        //       );
+        //     },
+        //   ),
+        // )
       ],
     ));
   }
