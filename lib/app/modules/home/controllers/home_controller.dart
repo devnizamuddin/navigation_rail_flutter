@@ -24,10 +24,9 @@ class HomeController extends GetxController {
   onDestinationSelected(int value, BuildContext context) {
     selectedIndex.value = value;
     levelText.value = getTextAsIndex(value);
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(builder: (_) => pages[value]),
-    // );
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) => pages[value]),
+    );
   }
 
   String getTextAsIndex(int index) {

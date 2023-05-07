@@ -11,6 +11,7 @@ class HomeView extends GetView<HomeController> {
       children: [
         Obx(
           () => NavigationRail(
+            labelType: NavigationRailLabelType.all,
             backgroundColor: Colors.grey[200],
             destinations: const [
               NavigationRailDestination(
@@ -23,7 +24,7 @@ class HomeView extends GetView<HomeController> {
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.person),
-                label: Text('Chat'),
+                label: Text('Profile'),
               ),
             ],
             selectedIndex: controller.selectedIndex.value,
