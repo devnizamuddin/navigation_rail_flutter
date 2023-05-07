@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
 import '../controllers/home_controller.dart';
@@ -9,16 +8,41 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('HomeView'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Text(
-          'HomeView is working',
-          style: TextStyle(fontSize: 20),
+        body: Row(
+      children: [
+        Obx(
+          () => NavigationRail(
+            backgroundColor: Colors.grey[200],
+            destinations: const [
+              NavigationRailDestination(
+                icon: Icon(Icons.home),
+                label: Text('Home'),
+              ),
+              NavigationRailDestination(
+                icon: Icon(Icons.message),
+                label: Text('Chat'),
+              ),
+              NavigationRailDestination(
+                icon: Icon(Icons.person),
+                label: Text('Chat'),
+              ),
+            ],
+            selectedIndex: controller.selectedIndex.value,
+            onDestinationSelected: (value) =>
+                controller.onDestinationSelected(value),
+          ),
         ),
-      ),
-    );
+        Expanded(
+            child: Center(
+          child: Obx(() => Container(
+                child: Text(
+                  controller.levelText.value,
+                  style: const TextStyle(
+                      fontSize: 32, fontWeight: FontWeight.bold),
+                ),
+              )),
+        ))
+      ],
+    ));
   }
 }
