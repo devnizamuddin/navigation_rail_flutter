@@ -10,6 +10,8 @@ class ChatView extends StatefulWidget {
 class _ChatViewState extends State<ChatView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold(
+      backgroundColor: Colors.yellow,
+    );
   }
 }
