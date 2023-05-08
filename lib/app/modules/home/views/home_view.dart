@@ -32,20 +32,20 @@ class HomeView extends GetView<HomeController> {
                 controller.onDestinationSelected(value, context),
           ),
         ),
-        // Expanded(
-        //   child: Center(
-        //     child: Obx(
-        //       () => Container(
-        //         child: Text(
-        //           controller.levelText.value,
-        //           style: const TextStyle(
-        //               fontSize: 32, fontWeight: FontWeight.bold),
-        //         ),
-        //       ),
-        //     ),
-        //   ),
-        // )
-
+        const VerticalDivider(thickness: 1, width: 1),
+        Expanded(
+          child: Center(
+            child: Obx(
+              () => Container(
+                child: Text(
+                  controller.levelText.value,
+                  style: const TextStyle(
+                      fontSize: 32, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+          ),
+        ),
         // Expanded(
         //   child: Navigator(
         //     onGenerateRoute: (settings) {

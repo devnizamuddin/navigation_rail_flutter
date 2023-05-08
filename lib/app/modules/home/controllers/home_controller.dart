@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:navigation_rail_flutter/app/modules/exam/views/exam_view.dart';
 import 'package:navigation_rail_flutter/app/modules/experiment/views/experiment_view.dart';
 import 'package:navigation_rail_flutter/app/modules/test/views/test_view.dart';
+import 'package:navigation_rail_flutter/app/routes/app_pages.dart';
 
 class HomeController extends GetxController {
   RxInt selectedIndex = 0.obs;
@@ -24,9 +25,7 @@ class HomeController extends GetxController {
   onDestinationSelected(int value, BuildContext context) {
     selectedIndex.value = value;
     levelText.value = getTextAsIndex(value);
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => pages[value]),
-    );
+    Get.toNamed(Routes.EXPERIMENT);
   }
 
   String getTextAsIndex(int index) {
